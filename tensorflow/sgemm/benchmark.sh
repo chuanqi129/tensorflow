@@ -22,7 +22,7 @@ run () {
     for M in ${RUN_SIZES[@]}; do
       for N in ${RUN_SIZES[@]}; do
         for K in ${RUN_SIZES[@]}; do
-          ../../bazel-bin/tensorflow/sgemm/${NAME} $M $N $K >> ${FOLDER_PATH}/$T
+          OMP_NUM_THREADS=1 ../../bazel-bin/tensorflow/sgemm/${NAME} $M $N $K >> ${FOLDER_PATH}/$T
         done
       done
     done

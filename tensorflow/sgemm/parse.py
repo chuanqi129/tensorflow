@@ -9,7 +9,7 @@ def parse_dir(dirname):
     if not isfile(fullname):
       continue
     for line in open(fullname).readlines()[1:]:
-      tokens = map(lambda x: x.strip(), line.split(", "))
+      tokens = list(map(lambda x: x.strip(), line.split(", ")))
       key = (int(tokens[0]), int(tokens[1]), int(tokens[2]))
       val = float(tokens[3])
       if key not in db:
